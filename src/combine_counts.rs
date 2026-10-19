@@ -144,7 +144,7 @@ mod tests {
 
     #[test]
     fn test_from_line() {
-        let line = "r1\tf\t05-19\t0\tAC\t-1\t61502\t609";
+        let line = "r1\tf\t03-17\t0\tAC\t-1\t61502\t609";
 
         let c = Count::from_line(line);
         assert_eq!(c.read12, 0);

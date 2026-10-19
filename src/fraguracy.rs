@@ -238,11 +238,10 @@ impl Counts {
     #[inline(always)]
     fn qual_to_bin(q: u8) -> u8 {
         match q {
-            0..=5 => 0,
-            6..=19 => 1,
-            20..=36 => 2,
-            37..=59 => 3,
-            _ => 4,
+            0..=2 => 0,
+            3..=17 => 1,
+            18..=29 => 2,
+            _ => 3,
         }
     }
 
@@ -678,13 +677,12 @@ lazy_static! {
         ['C', 'G'],
         ['C', 'T']
     ];
-    pub(crate) static ref Q_LOOKUP: [&'static str; 5] = ["0-5", "05-19", "20-36", "37-59", "60+"];
+    pub(crate) static ref Q_LOOKUP: [&'static str; 4] = ["0-2", "03-17", "18-29", "30+"];
     pub(crate) static ref REVERSE_Q_LOOKUP: HashMap<&'static str, u8> = HashMap::from([
-        ("0-5", 0),
-        ("05-19", 1),
-        ("20-36", 2),
-        ("37-59", 3),
-        ("60+", 4),
+        ("0-2", 0),
+        ("03-17", 1),
+        ("18-29", 2),
+        ("30+", 3),
     ]);
 }
 
